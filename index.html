@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Basemap for tests</title>
+  <title>Basemap for tests</title>//title seen in the browser tab
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
 
@@ -19,13 +19,13 @@
   <style>
   body { margin:0; padding:0; }
   #map { position: absolute; top:0; bottom:0; right:0; left:0; }
-  #map-title { position: relative; margin-top: 10px; margin-left: 50px; float: left; background: white; border: 2px solid rgba(0,0,0,0.2); padding: 6px 8px; font-family: Helvetica; font-weight: bold; font-size: 24px; z-index: 800; }
-  </style>
+  #map-title { position: relative; margin-top: 10px; margin-left: 50px; float: left; background:blue; border: 1px solid rgba(0,0,0,0.2); padding: 6px 8px; font-family: Helvetica; font-weight: bold; font-size: 24px; z-index: 800; }
+  </style>//adjust look of the map title
 </head>
 <body>
 
   <!-- Display the map and title with HTML division tags  -->
-  <div id="map-title">Basemap</div>
+  <div id="map-title">Basemap</div>//title of the map
   <div id="map"></div>
 
   <!-- Create the map content with JavaScript (.js) -->
@@ -41,7 +41,7 @@
   /* Control panel to display map layers */
   var controlLayers = L.control.layers( null, null, {
   position: "bottomright",
-  collapsed: false
+  collapsed: true//true , false make panel collapsed
   }).addTo(map);
 
   /* Carto light-gray basemap tiles with labels */
@@ -57,7 +57,7 @@
   controlLayers.addBaseLayer(terrain, 'Stamen Terrain basemap');
 
   /* Display a blue point marker with pop-up text */
-  L.marker([41.77, -72.69]).addTo(map) // EDIT latitude, longitude to re-position marker
+  L.marker([51.77, 18.69]).addTo(map) // EDIT latitude, longitude to re-position marker
   .bindPopup("Insert pop-up text here"); // EDIT pop-up text message
 
   /* Upload Latitude/Longitude markers from data.csv file, show Title in pop-up, and override initial center and zoom to fit all in map */
@@ -70,7 +70,7 @@
   .on('ready', function() {
   map.fitBounds(runLayer.getBounds());
   }).addTo(map);
-  controlLayers.addOverlay(customLayer, 'Markers from data.csv');
+  controlLayers.addOverlay(customLayer, 'Markers:');
 
   </script>
 </body>
