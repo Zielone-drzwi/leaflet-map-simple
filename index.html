@@ -33,7 +33,7 @@
 
   /* Set up the map with initial center and zoom level */
   var map = L.map('map', {
-    center: [54.77, 18.69], // EDIT latitude, longitude to re-center map
+    center: [54.00, 18.00], // EDIT latitude, longitude to re-center map
     zoom: 12,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
     scrollWheelZoom: true
   });
@@ -61,12 +61,14 @@
 	maxZoom: 18,
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);  
-  controlLayers.addBaseLayer(standard, 'OSM Deutschland');
+  controlLayers.addBaseLayer(OpenStreetMap_DE, 'OSM Deutschland');
 	  
   var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
 	maxZoom: 17,
 	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-}).addTo(map);  
+  }).addTo(map);  
+  controlLayers.addBaseLayer(OpenTopoMap, 'OSM Deutschland');  
+	  
 	  
   /* Display a blue point marker with pop-up text */
   L.marker([51.77, 18.69]).addTo(map) // EDIT latitude, longitude to re-position marker
